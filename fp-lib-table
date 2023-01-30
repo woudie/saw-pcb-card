@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "RF")(type "KiCad")(uri "${KIPRJMOD}/libs/RF.pretty")(options "")(descr ""))
+  (lib (name "saw")(type "KiCad")(uri "${KIPRJMOD}/libs/saw.pretty")(options "")(descr ""))
+)
