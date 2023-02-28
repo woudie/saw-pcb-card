@@ -1,8 +1,10 @@
+---
 name: 🐛Bug Report
 description: File a bug report here
 title: "[BUG]: "
 labels: ["bug"]
 assignees: ["AnishDe12020"]
+---
 body:
   - type: markdown
     attributes:
