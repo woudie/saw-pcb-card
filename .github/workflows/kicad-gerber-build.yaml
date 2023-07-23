@@ -3,7 +3,7 @@ name: kicad-test-stuff
 on:
   workflow_dispatch:
     inputs:
-      requested_target:
+      requested_target [see docs](https://google.com/):
         description: 'Target Image'
         required: true
         default: 'swapbot-base'
