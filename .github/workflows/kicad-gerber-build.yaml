@@ -1,0 +1,49 @@
+name: kicad-test-stuff
+
+on:
+  workflow_dispatch:
+    inputs:
+      requested_target:
+        description: 'Target Image'
+        required: true
+        default: 'swapbot-base'
+        type: choice
+        options:
+        - swap-base
+        - swapbot-base
+        - sim
+      builder:
+        description: "Docker Builder"
+        required: false
+        default: "swapbot-builder-ga"
+        type: string
+      version:
+        description: 'version'
+        required: false
+        type: number
+      target_architecture:
+        description: "Target Architecture"
+        required: false
+        default: 'arm64'
+        target: string
+
+
+jobs:
+  kicad-generate-files:
+    name: generate export docs from kicad files
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: kicad-setup
+        uses: actions-for-kicad/generate-kicad-files@v1.0
+        with:
+          file: './file.kicad_sch'
+          type: 'schematic_pdf'
+
+      - name: Upload 
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'file.pdf'
+          path: './file.pdf'
